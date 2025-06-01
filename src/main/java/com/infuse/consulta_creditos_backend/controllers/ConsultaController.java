@@ -20,26 +20,18 @@ import java.util.List;
 public class ConsultaController {
 
     @Autowired
-    private CreditoService creditoService;
-
-
-    @Autowired
-    private AuditoriaKafkaProducer auditoriaKafkaProducer;
+    CreditoService creditoService;
 
 
     @GetMapping("/api/creditos/{numeroNfse}")
     public List<CreditoDto> getCreditos(@PathVariable String numeroNfse){
-        auditoriaKafkaProducer.enviarEvento(
-                new AuditoriaEvent("/api/creditos/" + numeroNfse, numeroNfse, LocalDateTime.now())
-        );
+
         return creditoService.getCreditoByNfse(numeroNfse);
     }
 
     @GetMapping("/api/credito/{numeroCredito}")
     public CreditoDto getCredito(@PathVariable String numeroCredito){
-        auditoriaKafkaProducer.enviarEvento(
-                new AuditoriaEvent("/api/creditos/credito/" + numeroCredito, numeroCredito, LocalDateTime.now())
-        );
+
         return creditoService.getCreditoByNumero(numeroCredito);
     }
 }

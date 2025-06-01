@@ -8,10 +8,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class AuditoriaKafkaProducer {
 
+    private final KafkaTemplate<String, Object> kafkaTemplate;
+
     private static final String TOPIC = "auditoria-creditos";
 
-    @Autowired
-    private KafkaTemplate<String, AuditoriaEvent> kafkaTemplate;
+    public AuditoriaKafkaProducer(KafkaTemplate<String, Object> kafkaTemplate) {
+        this.kafkaTemplate = kafkaTemplate;
+    }
 
     public void enviarEvento(AuditoriaEvent evento) {
         kafkaTemplate.send(TOPIC, evento);
