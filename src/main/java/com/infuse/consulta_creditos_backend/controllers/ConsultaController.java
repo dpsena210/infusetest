@@ -25,8 +25,7 @@ public class ConsultaController {
 
     @GetMapping("/api/creditos/{numeroNfse}")
     public List<CreditoDto> getCreditos(@PathVariable String numeroNfse){
-
-        return creditoService.getCreditoByNfse(numeroNfse);
+        return creditoService.getCreditosByNfse(numeroNfse);
     }
 
     @GetMapping("/api/credito/{numeroCredito}")

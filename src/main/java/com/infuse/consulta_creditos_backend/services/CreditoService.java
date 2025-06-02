@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class CreditoService {
@@ -23,38 +24,39 @@ public class CreditoService {
     @Autowired
     AuditoriaKafkaProducer auditoriaKafkaProducer;
     
-    public void produceCreditosByNfse(String numeroCredito, String numeroNfse){
+    public void produceCreditosByNfse(List<String> numeroCredito, String numeroNfse){
         auditoriaKafkaProducer.enviarEvento(
-
                 new AuditoriaEvent(numeroCredito, numeroNfse,"get creditos by nfse", LocalDateTime.now())
         );
     }
 
-    public void produceCreditoByNumber(String numeroCredito, String numeroNfse){
+    public void produceCreditoByNumber(List<String> numeroCredito, String numeroNfse){
         auditoriaKafkaProducer.enviarEvento(
                 new AuditoriaEvent(numeroCredito, numeroNfse,"get credito by number", LocalDateTime.now())
         );
     }
     
-    public List<CreditoDto> getCreditoByNfse(String nfse){
+    public List<CreditoDto> getCreditosByNfse(String nfse){
         List<Credito> listCreditos = creditoRepository.findByNumeroNfse(nfse);
         CreditoMapper creditoMapper = new CreditoMapper();
         List<CreditoDto> listCreditoDto = creditoMapper.toCreditoDtoList(listCreditos);
-        CreditoDto creditoDto = listCreditoDto.getFirst();
-        String numeroCredito = creditoDto.getNumeroCredito();
-        String numeroNtse = creditoDto.getNfse();
-        produceCreditosByNfse(numeroCredito,numeroNtse);
+        List<String> listNumerosCredito = listCreditoDto.stream().map(CreditoDto::getNumeroCredito)
+                .collect(Collectors.toList());
+        String numeroNtse = listCreditoDto.getFirst().getNfse();
+        produceCreditosByNfse(listNumerosCredito,numeroNtse);
 
         return  listCreditoDto;
 
     }
 
     public CreditoDto getCreditoByNumero(String numeroCredito){
+
         Credito credito = creditoRepository.findByNumeroCredito(numeroCredito);
         CreditoMapper creditoMapper = new CreditoMapper();
         CreditoDto creditoDto = creditoMapper.toCreditoDto(credito);
         String numeroNtse = creditoDto.getNfse();
-        produceCreditoByNumber(numeroCredito,numeroNtse);
+        List<String> listNumeroCredito = numeroCredito.lines().toList();
+        produceCreditoByNumber(listNumeroCredito,numeroNtse);
 
         return creditoDto;
     }

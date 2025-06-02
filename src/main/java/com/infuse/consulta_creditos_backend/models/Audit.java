@@ -3,7 +3,9 @@ package com.infuse.consulta_creditos_backend.models;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "audit")
@@ -15,7 +17,7 @@ public class Audit {
         private Long id;
 
         @Column
-        private String numeroCredito;
+        private List<String> numeroCredito;
 
         @Column
         private String numeroNfse;
@@ -24,9 +26,10 @@ public class Audit {
         private String acao;
 
         @Column
+        @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
         private LocalDateTime timestamp;
 
-        public Audit(String numeroCredito, String numeroNfse, String acao, LocalDateTime timestamp){
+        public Audit(List<String> numeroCredito, String numeroNfse, String acao, LocalDateTime timestamp){
             this.numeroCredito = numeroCredito;
             this.numeroNfse = numeroNfse;
             this.acao = acao;
