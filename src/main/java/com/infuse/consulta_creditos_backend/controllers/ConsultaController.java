@@ -18,19 +18,19 @@ public class ConsultaController {
 
 
     @GetMapping("/api/creditos")
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "http://localhost:80")
     public List<CreditoDto> getAllCreditos(){
         return creditoService.getCreditosAll();
     }
 
     @GetMapping("/api/creditos/{numeroNfse}")
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "http://localhost:80")
     public List<CreditoDto> getCreditos(@PathVariable String numeroNfse){
         return creditoService.getCreditosByNfse(numeroNfse.toUpperCase());
     }
 
     @GetMapping("/api/credito/{numeroCredito}")
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "http://localhost:80")
     public CreditoDto getCredito(@PathVariable String numeroCredito){
         return creditoService.getCreditoByNumero(numeroCredito.toUpperCase());
     }
