@@ -43,9 +43,8 @@ public class AuditoriaKafkaConsumer {
         }
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
         LocalDateTime timestampDate = LocalDateTime.parse(timestamp, formatter);
-        //Audit audit = new Audit(listaCreditos, numeroNfse,acao,timestampDate);
-        //repository.save(audit);
-        System.out.println("olha aqui:"+listaCreditos);
+
+        System.out.println("lista créditos"+listaCreditos);
 
     }
 }

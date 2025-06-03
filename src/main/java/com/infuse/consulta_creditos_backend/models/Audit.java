@@ -12,27 +12,30 @@ import java.util.List;
 @Data
 public class Audit {
 
-        @Id
-        @GeneratedValue
-        private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-        @Column
-        private List<String> numeroCredito;
+    @ElementCollection
+    @Column(name = "numero_credito")
+    private List<String> numeroCredito;
 
-        @Column
-        private String numeroNfse;
+    @Column
+    private String numeroNfse;
 
-        @Column
-        private String acao;
+    @Column
+    private String acao;
 
-        @Column
-        @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-        private LocalDateTime timestamp;
+    @Column
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    private LocalDateTime timestamp;
 
-        public Audit(List<String> numeroCredito, String numeroNfse, String acao, LocalDateTime timestamp){
-            this.numeroCredito = numeroCredito;
-            this.numeroNfse = numeroNfse;
-            this.acao = acao;
-            this.timestamp = timestamp;
-        }
+    public Audit() {}
+
+    public Audit(List<String> numeroCredito, String numeroNfse, String acao, LocalDateTime timestamp) {
+        this.numeroCredito = numeroCredito;
+        this.numeroNfse = numeroNfse;
+        this.acao = acao;
+        this.timestamp = timestamp;
+    }
 }

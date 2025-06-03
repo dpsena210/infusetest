@@ -52,11 +52,14 @@ export class Creditos implements OnInit {
         }
       }
     )
-    .then(response=>response.json())
-    .then(data=>{
-        this.creditos = data;
-    
-    })
+    .then(response=>{
+      if(response.status==404){
+        alert("Nenhuma nota fiscal encontrada!")
+        window.location.reload();
+      }
+      return response.json()})    
+      .then(data=> {
+        this.creditos = data})
     .catch(error => console.error('Erro ao buscar dados:', error));
 
   }
@@ -74,13 +77,18 @@ export class Creditos implements OnInit {
         }
       }
     )
-    .then(response=>response.json())
+    .then(response=>{
+      if(response.status==404){
+        alert("Nenhum crédito encontrado!");
+        window.location.reload();
+      }
+      return response.json()})
     .then(data=>{
         this.creditos = [];
         this.creditos.push(data);
     
     })
-    .catch(error => console.error('Erro ao buscar dados:', error));
+    .catch(error => alert("errou"));
 
   }
    
