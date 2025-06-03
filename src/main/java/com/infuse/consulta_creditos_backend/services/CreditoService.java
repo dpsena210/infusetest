@@ -23,7 +23,10 @@ public class CreditoService {
 
     @Autowired
     AuditoriaKafkaProducer auditoriaKafkaProducer;
-    
+
+    CreditoMapper creditoMapper = new CreditoMapper();
+
+
     public void produceCreditosByNfse(List<String> numeroCredito, String numeroNfse){
         auditoriaKafkaProducer.enviarEvento(
                 new AuditoriaEvent(numeroCredito, numeroNfse,"get creditos by nfse", LocalDateTime.now())
@@ -35,10 +38,13 @@ public class CreditoService {
                 new AuditoriaEvent(numeroCredito, numeroNfse,"get credito by number", LocalDateTime.now())
         );
     }
-    
+    public List<CreditoDto> getCreditosAll(){
+        List<Credito> listCreditos = creditoRepository.findAll();
+
+        return creditoMapper.toCreditoDtoList(listCreditos);
+    }
     public List<CreditoDto> getCreditosByNfse(String nfse){
         List<Credito> listCreditos = creditoRepository.findByNumeroNfse(nfse);
-        CreditoMapper creditoMapper = new CreditoMapper();
         List<CreditoDto> listCreditoDto = creditoMapper.toCreditoDtoList(listCreditos);
         List<String> listNumerosCredito = listCreditoDto.stream().map(CreditoDto::getNumeroCredito)
                 .collect(Collectors.toList());
@@ -46,13 +52,11 @@ public class CreditoService {
         produceCreditosByNfse(listNumerosCredito,numeroNtse);
 
         return  listCreditoDto;
-
     }
 
     public CreditoDto getCreditoByNumero(String numeroCredito){
 
         Credito credito = creditoRepository.findByNumeroCredito(numeroCredito);
-        CreditoMapper creditoMapper = new CreditoMapper();
         CreditoDto creditoDto = creditoMapper.toCreditoDto(credito);
         String numeroNtse = creditoDto.getNfse();
         List<String> listNumeroCredito = numeroCredito.lines().toList();

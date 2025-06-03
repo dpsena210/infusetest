@@ -6,10 +6,7 @@ import com.infuse.consulta_creditos_backend.kafka.producer.AuditoriaKafkaProduce
 import com.infuse.consulta_creditos_backend.services.CreditoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -23,13 +20,21 @@ public class ConsultaController {
     CreditoService creditoService;
 
 
+    @GetMapping("/api/creditos")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public List<CreditoDto> getAllCreditos(){
+        return creditoService.getCreditosAll();
+    }
+
     @GetMapping("/api/creditos/{numeroNfse}")
+    @CrossOrigin(origins = "http://localhost:4200")
     public List<CreditoDto> getCreditos(@PathVariable String numeroNfse){
-        return creditoService.getCreditosByNfse(numeroNfse);
+        return creditoService.getCreditosByNfse(numeroNfse.toUpperCase());
     }
 
     @GetMapping("/api/credito/{numeroCredito}")
+    @CrossOrigin(origins = "http://localhost:4200")
     public CreditoDto getCredito(@PathVariable String numeroCredito){
-        return creditoService.getCreditoByNumero(numeroCredito);
+        return creditoService.getCreditoByNumero(numeroCredito.toUpperCase());
     }
 }

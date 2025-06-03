@@ -1,15 +1,15 @@
-<h1 class="title-creditos">Pesquisa de Créditos</h1>
+<h1 class="title-creditos">Consulta de Créditos</h1>
     <div class="buscas">
         <div class="search">
             <div class="search-title">
-                <input  type="text" placeholder="Nfs-e" [(ngModel)]="searchTerm" />
-                <button  (click)="onSearch()"> <i class="bi bi-search"></i></button>
+                <input  type="text" placeholder="Nfs-e" [(ngModel)]="searchByNfse" />
+                <button  (click)="onSearchByNfse()"> <i class="bi bi-search"></i></button>
             </div>
         </div>
         <div class="search">
             <div class="search-title">
-                <input  type="text" placeholder="Nº Crédito" [(ngModel)]="searchTerm" />
-                <button  (click)="onSearch()">    <i class="bi bi-search"></i></button>
+                <input  type="text" placeholder="Nº Crédito" [(ngModel)]="searchByCredito" />
+                <button  (click)="onSearchByCredito()">    <i class="bi bi-search"></i></button>
             </div>
         </div>
     </div>
