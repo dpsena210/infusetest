@@ -49,6 +49,8 @@ Abaixo estão os principais endpoints disponíveis na API, com o método HTTP, d
 | GET    | `/api/credito/{numeroCredito}` | Consulta crédito pelo número do crédito | ```bash<br>curl -u dan:123 http://localhost:8152/api/credito/CR10001<br>``` |
 
 ---
+
+```
 Estrutura:
 consulta-creditos/
     ├── src/main/
@@ -66,5 +68,6 @@ consulta-creditos/
         │    
         ├─── src/app/
         │
-       ...         
+       ...
+```
           
