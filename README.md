@@ -51,23 +51,25 @@ Abaixo estão os principais endpoints disponíveis na API, com o método HTTP, d
 ---
 
 ```
-Estrutura:
 consulta-creditos/
-    ├── src/main/
-    │   ├── java/
-    │   │   ├── config/      
-    │   │   ├── events/   
-    │   │   ├── controlers/
-    │   │   ├── dtos/
-    │   │   ├── mappers/
-    │   │  ...  
-    │   └── resources/
-    │       ├── db.migrations/
-    │       └── application.properties
-    └── consulta-creditos-frontend
-        │    
-        ├─── src/app/
-        │
-       ...
+├── src/main/
+│   ├── java/
+│   │   ├── config/         
+│   │   ├── controllers/    
+│   │   ├── dtos/           
+│   │   ├── mappers/        
+│   │   ├── services/       
+│   │   ├── repositories/   
+│   │   └── events/         
+│   └── resources/
+│       ├── db.migrations/  
+│       └── application.properties  
+└── consulta-creditos-frontend/
+    └── src/app/
+        ├── components/     
+        ├── services/       
+        ├── models/         
+        └── pages/          
+
 ```
           
