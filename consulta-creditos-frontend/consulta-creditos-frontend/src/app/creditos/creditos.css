@@ -1,0 +1,145 @@
+:host {
+  display: block;
+  padding: 1rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+.title-creditos{
+    text-align:center;
+    margin-bottom:50px;
+}
+.tabela-wrapper {
+  overflow-x: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  margin: 1rem 0;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+  background-color: #3498db;
+  color: white;
+  font-weight: 500;
+  position: sticky;
+  top: 0;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Estilos para valores */
+.valor {
+  font-family: 'Roboto Mono', monospace;
+  color: #27ae60;
+}
+
+.sim { color: #27ae60; font-weight: 600; }
+.nao { color: #e74c3c; font-weight: 600; }
+
+
+@media(min-width:600px){
+    table{
+        width: 100%;
+    }
+}
+
+@media(min-width:850px) and (max-width: 1020px){
+    th, td {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+    }
+    table {
+        min-width: none !important; /* Largura mínima para manter organização */
+    }
+
+}
+/* Responsividade simples */
+@media (min-width: 600px) and (max-width:850px){
+  th, td {
+    padding: 8px 10px;
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Estrutura base */
+  table {
+    border: none;
+    background: transparent;
+  }
+  
+  tr {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    overflow: hidden;
+    padding: 0;
+    width:75vw;
+    min-width: 250px;
+  }
+  .tabela-wrapper{
+    width:75vw;
+    min-width: 250px;
+    margin:10px auto;
+    
+}
+
+  /* Células como linhas flex */
+  td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #f5f5f5;
+  }
+
+  /* Remove borda do último item */
+  td:last-child {
+    border-bottom: none;
+  }
+
+  /* Label esquerdo */
+  td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #7f8c8d;
+    margin-right: 1rem;
+    flex: 0 0 40%;
+    font-size: 0.85rem;
+  }
+
+  /* Conteúdo direito */
+  td > span {
+    flex: 1;
+    text-align: right;
+    font-weight: 500;
+    color: #2c3e50;
+  }
+
+  /* Destaques para valores */
+  .valor {
+    font-family: 'Roboto Mono', monospace;
+    color: #27ae60;
+    font-weight: 600;
+  }
+
+  /* Espaçamento entre grupos */
+  tr:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+  .colunas-title{
+    display:none;
+  }
+}

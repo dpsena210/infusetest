@@ -30,7 +30,6 @@ public class ConsultaController {
 
     @GetMapping("/api/credito/{numeroCredito}")
     public CreditoDto getCredito(@PathVariable String numeroCredito){
-
         return creditoService.getCreditoByNumero(numeroCredito);
     }
 }

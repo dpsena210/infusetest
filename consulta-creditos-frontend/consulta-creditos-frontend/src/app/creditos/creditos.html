@@ -1,0 +1,37 @@
+<h2 class="title-creditos">Lista de Créditos</h2>
+
+<div class="tabela-wrapper">
+  <table>
+    
+    <thead class="colunas-title">
+      <tr>
+        <th>Número</th>
+        <th>NFS-e</th>
+        <th>Data</th>
+        <th>ISSQN</th>
+        <th>Tipo</th>
+        <th>Simples</th>
+        <th>Alíquota</th>
+        <th>Faturado</th>
+        <th>Dedução</th>
+        <th>Base Cálculo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="card-creditos" *ngFor="let credito of creditos">
+        <td data-label="Número">{{ credito.numeroCredito }}</td>
+        <td data-label="NFS-e">{{ credito.nfse }}</td>
+        <td data-label="Data">{{ credito.dataConstituicao }}</td>
+        <td data-label="ISSQN" class="valor">{{ credito.valorIssqn | currency:'BRL':'symbol':'1.2-2' }}</td>
+        <td data-label="Tipo">{{ credito.tipoCredito }}</td>
+        <td data-label="Simples" [class.sim]="credito.simplesNacional" [class.nao]="!credito.simplesNacional">
+          {{ credito.simplesNacional ? 'Sim' : 'Não' }}
+        </td>
+        <td data-label="Alíquota">{{ credito.aliquota }}%</td>
+        <td data-label="Faturado" class="valor">{{ credito.valorFaturado | currency:'BRL':'symbol':'1.2-2' }}</td>
+        <td data-label="Dedução" class="valor">{{ credito.valorDeducao | currency:'BRL':'symbol':'1.2-2' }}</td>
+        <td data-label="Base Cálculo" class="valor">{{ credito.baseCalculo | currency:'BRL':'symbol':'1.2-2' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
