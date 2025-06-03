@@ -1,17 +1,33 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Adicione esta importação
 
 
 @Component({
   selector: 'app-creditos',
-  standalone:true,
-  imports: [CommonModule],
+  standalone:false,
   templateUrl: './creditos.html',
   styleUrl: './creditos.css',
 
 })
 export class Creditos {
+  searchTerm: string = '';
+  onSearch() {
+    const username = 'dan';
+    const password = '123';
+    const basicAuth = 'Basic ' + btoa(`${username}:${password}`);
+    const endpointCall = "http://localhost:8152/api/creditos/"+this.searchTerm
+    fetch(endpointCall,{
+        method:'GET',
+        headers: {
+          'Authorization': basicAuth
+        }
+      }
+    )
+    .then(response=>response.json())
+    .then(data=>console.log(data))
+    .catch(error => console.error('Erro ao buscar dados:', error));
 
+    console.log('Buscando por:', this.searchTerm);
+  }
    creditos = [
     {
       numeroCredito: "CR10001",

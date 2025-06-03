@@ -8,7 +8,7 @@ describe('Creditos', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Creditos]
+      declarations: [Creditos]
     })
     .compileComponents();
 
