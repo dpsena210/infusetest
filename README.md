@@ -72,4 +72,10 @@ consulta-creditos/
         └── pages/          
 
 ```
+
+# Testes unitários
+
+``` 
+./gradlew test
+``` 
           
