@@ -7,6 +7,8 @@
 [![Kafka](https://img.shields.io/badge/Apache%20Kafka-000000.svg)](https://kafka.apache.org/)
 [![Flyway](https://img.shields.io/badge/Flyway-yellow.svg)](https://flywaydb.org/)
 [![JUnit5](https://img.shields.io/badge/JUnit-brightgreen.svg)](https://junit.org/junit5/)
+[![Mockito](https://img.shields.io/badge/Mockito-lightgrey.svg)](https://site.mockito.org/)
+
 
 ## 📋 Descrição
 Solução completa para consulta de créditos com:
@@ -14,7 +16,7 @@ Solução completa para consulta de créditos com:
 - **Frontend**: Angular
 - **Banco de Dados**: PostgreSQL + Flyway (migrations)
 - **Mensageria**: Kafka
-- **Testes unitários** : JUnit
+- **Testes unitários** : JUnit, Mockito
 
 ## 🚀 Como Executar
 
