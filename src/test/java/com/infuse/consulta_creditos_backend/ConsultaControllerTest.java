@@ -1,33 +1,38 @@
 package com.infuse.consulta_creditos_backend;
+
 import com.infuse.consulta_creditos_backend.controllers.ConsultaController;
 import com.infuse.consulta_creditos_backend.dtos.CreditoDto;
 import com.infuse.consulta_creditos_backend.services.CreditoService;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.http.MediaType;
 import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
-
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
-
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@WebMvcTest(ConsultaController.class)
+@ExtendWith(MockitoExtension.class)
 public class ConsultaControllerTest {
 
-    @Autowired
     private MockMvc mockMvc;
 
-    @MockBean
-    private CreditoService creditoService;  // usar @MockBean mesmo se está deprecated
+    @Mock
+    private CreditoService creditoService;
+
+    @InjectMocks
+    private ConsultaController consultaController;
 
     private final CreditoDto creditoDto1 = CreditoDto.builder()
             .numeroCredito("123")
@@ -38,6 +43,11 @@ public class ConsultaControllerTest {
             .numeroCredito("456")
             .nfse("NFSE2")
             .build();
+
+    @BeforeEach
+    public void setup() {
+        mockMvc = MockMvcBuilders.standaloneSetup(consultaController).build();
+    }
 
     @Test
     public void testGetAllCreditos() throws Exception {
