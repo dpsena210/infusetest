@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "outputPath": "dist/consulta-creditos-frontend/browser",
+            "outputPath": "dist/consulta-creditos-frontend",
 
             "browser": "src/main.ts",
             "polyfills": [
