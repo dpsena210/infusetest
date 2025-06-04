@@ -33,11 +33,11 @@ export class Creditos implements OnInit {
     .then(response=>response.json())
     .then(data=>{
         this.creditos = data;
-    
+
     })
     .catch(error => console.error('Erro ao buscar dados:', error));
   }
-  
+
   onSearchByNfse() {
     this.searchByCredito = ''
     const username = 'dan';
@@ -57,7 +57,7 @@ export class Creditos implements OnInit {
         alert("Nenhuma nota fiscal encontrada!")
         window.location.reload();
       }
-      return response.json()})    
+      return response.json()})
       .then(data=> {
         this.creditos = data})
     .catch(error => console.error('Erro ao buscar dados:', error));
@@ -86,12 +86,12 @@ export class Creditos implements OnInit {
     .then(data=>{
         this.creditos = [];
         this.creditos.push(data);
-    
+
     })
-    .catch(error => alert("errou"));
+    .catch(error => console.log("error"));
 
   }
-   
-   
+
+
 
 }

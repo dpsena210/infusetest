@@ -1,15 +1,12 @@
 package com.infuse.consulta_creditos_backend;
-
 import com.infuse.consulta_creditos_backend.dtos.CreditoDto;
 import com.infuse.consulta_creditos_backend.mappers.CreditoMapper;
 import com.infuse.consulta_creditos_backend.models.Credito;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class CreditoMapperTest {

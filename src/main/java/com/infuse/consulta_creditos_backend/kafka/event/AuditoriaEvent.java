@@ -1,9 +1,6 @@
 package com.infuse.consulta_creditos_backend.kafka.event;
-
 import lombok.Getter;
 import com.fasterxml.jackson.annotation.JsonFormat;
-
-
 import java.time.LocalDateTime;
 import java.util.List;
 

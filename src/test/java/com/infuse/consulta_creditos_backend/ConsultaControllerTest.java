@@ -1,5 +1,4 @@
 package com.infuse.consulta_creditos_backend;
-
 import com.infuse.consulta_creditos_backend.controllers.ConsultaController;
 import com.infuse.consulta_creditos_backend.dtos.CreditoDto;
 import com.infuse.consulta_creditos_backend.services.CreditoService;

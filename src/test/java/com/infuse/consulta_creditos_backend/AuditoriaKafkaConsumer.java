@@ -1,5 +1,4 @@
 package com.infuse.consulta_creditos_backend;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.infuse.consulta_creditos_backend.kafka.consumer.AuditoriaKafkaConsumer;
@@ -9,10 +8,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
-import java.time.LocalDateTime;
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class AuditoriaKafkaConsumerTest {

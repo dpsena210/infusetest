@@ -1,14 +1,11 @@
 package com.infuse.consulta_creditos_backend;
-
 import com.infuse.consulta_creditos_backend.kafka.event.AuditoriaEvent;
 import com.infuse.consulta_creditos_backend.kafka.producer.AuditoriaKafkaProducer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.*;
 import org.springframework.kafka.core.KafkaTemplate;
-
 import java.time.LocalDateTime;
-
 import static org.mockito.Mockito.*;
 
 class AuditoriaKafkaProducerTest {

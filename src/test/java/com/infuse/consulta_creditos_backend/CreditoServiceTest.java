@@ -1,5 +1,4 @@
 package com.infuse.consulta_creditos_backend;
-
 import com.infuse.consulta_creditos_backend.dtos.CreditoDto;
 import com.infuse.consulta_creditos_backend.exceptions.CreditosNaoEncontrados;
 import com.infuse.consulta_creditos_backend.kafka.producer.AuditoriaKafkaProducer;
@@ -10,9 +9,7 @@ import com.infuse.consulta_creditos_backend.services.CreditoService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.*;
-
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
