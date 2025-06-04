@@ -24,16 +24,18 @@ Solução completa para consulta de créditos com:
 
 ```bash
 # 1. Clone o repositório
-git clone https://github.com/seu-repo/credit-api.git
-cd credit-api
+git clone  https://github.com/dpsena210/infusetest.git
+cd infusetest
 
 # 2. Construa e inicie os containers
 docker-compose up --build
 
 # 3. Acesse:
+
 echo "Frontend: http://localhost:80"
-CURL "API: http://localhost:8152" (opicional)
-echo "Kafka UI: http://localhost:8080 (opicional)"
+echo "API:      http://localhost:8152"
+echo "Kafka UI: http://localhost:8080"
+
 
 
 ```
@@ -73,9 +75,17 @@ consulta-creditos/
 
 ```
 
-# Testes unitários
+## 🧪 Testes unitários
 
-``` 
+### Rode os testes com o Gradle Wrapper:
+
+#### Linux/macOS:
+```bash
 ./gradlew test
-``` 
-          
+```
+#### Windows
+
+```bash
+gradlew test
+
+```
