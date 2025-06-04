@@ -4,9 +4,9 @@
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5-green.svg)](https://spring.io/projects/spring-boot)
 [![Angular](https://img.shields.io/badge/Angular-20-orange.svg)](https://angular.io/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-blue.svg)](https://www.postgresql.org/)
-[![Kafka](https://img.shields.io/badge/Apache%20Kafka-3.1-000000.svg)](https://kafka.apache.org/)
-[![Flyway](https://img.shields.io/badge/Flyway-9-yellow.svg)](https://flywaydb.org/)
-[![JUnit5](https://img.shields.io/badge/JUnit-5-brightgreen.svg)](https://junit.org/junit5/)
+[![Kafka](https://img.shields.io/badge/Apache%20Kafka-000000.svg)](https://kafka.apache.org/)
+[![Flyway](https://img.shields.io/badge/Flyway-yellow.svg)](https://flywaydb.org/)
+[![JUnit5](https://img.shields.io/badge/JUnit-brightgreen.svg)](https://junit.org/junit5/)
 
 ## 📋 Descrição
 Solução completa para consulta de créditos com:
