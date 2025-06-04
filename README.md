@@ -4,9 +4,11 @@
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5-green.svg)](https://spring.io/projects/spring-boot)
 [![Angular](https://img.shields.io/badge/Angular-20-orange.svg)](https://angular.io/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-blue.svg)](https://www.postgresql.org/)
-[![Kafka](https://img.shields.io/badge/Apache%20Kafka-3.1-000000.svg)](https://kafka.apache.org/)
-[![Flyway](https://img.shields.io/badge/Flyway-9-yellow.svg)](https://flywaydb.org/)
-[![JUnit5](https://img.shields.io/badge/JUnit-5-brightgreen.svg)](https://junit.org/junit5/)
+[![Kafka](https://img.shields.io/badge/Apache%20Kafka-000000.svg)](https://kafka.apache.org/)
+[![Flyway](https://img.shields.io/badge/Flyway-yellow.svg)](https://flywaydb.org/)
+[![JUnit5](https://img.shields.io/badge/JUnit-brightgreen.svg)](https://junit.org/junit5/)
+[![Mockito](https://img.shields.io/badge/Mockito-lightgrey.svg)](https://site.mockito.org/)
+
 
 ## 📋 Descrição
 Solução completa para consulta de créditos com:
@@ -14,7 +16,7 @@ Solução completa para consulta de créditos com:
 - **Frontend**: Angular
 - **Banco de Dados**: PostgreSQL + Flyway (migrations)
 - **Mensageria**: Kafka
-- **Testes unitários** : JUnit
+- **Testes unitários** : JUnit, Mockito
 
 ## 🚀 Como Executar
 
@@ -24,16 +26,18 @@ Solução completa para consulta de créditos com:
 
 ```bash
 # 1. Clone o repositório
-git clone https://github.com/seu-repo/credit-api.git
-cd credit-api
+git clone  https://github.com/dpsena210/infusetest.git
+cd infusetest
 
 # 2. Construa e inicie os containers
 docker-compose up --build
 
 # 3. Acesse:
+
 echo "Frontend: http://localhost:80"
-CURL "API: http://localhost:8152" (opicional)
-echo "Kafka UI: http://localhost:8080 (opicional)"
+echo "API:      http://localhost:8152"
+echo "Kafka UI: http://localhost:8080"
+
 
 
 ```
@@ -72,4 +76,18 @@ consulta-creditos/
         └── pages/          
 
 ```
-          
+
+## 🧪 Testes unitários
+
+### Rode os testes com o Gradle Wrapper:
+
+#### Linux/macOS:
+```bash
+./gradlew test
+```
+#### Windows
+
+```bash
+gradlew test
+
+```
